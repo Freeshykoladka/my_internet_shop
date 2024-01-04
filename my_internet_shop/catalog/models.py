@@ -25,7 +25,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='url')
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    photo = models.ImageField(upload_to='dishes/', blank=True)
+    photo = models.ImageField(upload_to='pohots/', blank=True)
     is_visible = models.BooleanField(default=True)
     order = models.PositiveSmallIntegerField()
     
@@ -44,3 +44,9 @@ class Product(models.Model):
               models.UniqueConstraint(fields=['order', 'catalogs'], name='unique_order_per_each_catalogs'),
          ]
         unique_together=['id','slug']
+
+
+class Gallery(models.Model):
+    photo = models.ImageField(upload_to='gallery/')
+    is_visible = models.BooleanField(default=True)
+    title = models.CharField(max_length=255, blank=True)
