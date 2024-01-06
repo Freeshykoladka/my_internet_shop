@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,11 +22,12 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 -->
 
+  
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">	  
+    {% block additional_css %}{% endblock %}
   </head>
 
   <body>
@@ -72,29 +74,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
-    <div class="banner header-text">
-      <div class="owl-banner owl-carousel">
-        <div class="banner-item-01">
-          <div class="text-content">
-            <h4>Best Offer</h4>
-            <h2>New Arrivals On Sale</h2>
-          </div>
-        </div>
-        <div class="banner-item-02">
-          <div class="text-content">
-            <h4>Flash Deals</h4>
-            <h2>Get your best products</h2>
-          </div>
-        </div>
-        <div class="banner-item-03">
-          <div class="text-content">
-            <h4>Last Minute</h4>
-            <h2>Grab last minute deals</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Banner Ends Here -->
+    {% include "banner.html" %}
 
     <div class="latest-products">
       <div class="container">
@@ -291,12 +271,11 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/accordions.js"></script>
-
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+    <script src="{% static 'assets/js/isotope.js' %}"></script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
