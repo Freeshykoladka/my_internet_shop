@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-    <title>Sixteen Clothing Products</title>
+    <title>Sixteen Clothing - About Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,10 +22,9 @@ https://templatemo.com/tm-546-sixteen-clothing
 -->
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-
+    <link rel="stylesheet" href= 'assets/css/fontawesome.css'>
+    <link rel="stylesheet" href= 'assets/css/templatemo-sixteen.css'>
+    <link rel="stylesheet" href= 'assets/css/owl.css'>
   </head>
 
   <body>
@@ -55,10 +54,10 @@ https://templatemo.com/tm-546-sixteen-clothing
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="products.html">Our Products</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="about.html">About Us</a>
               </li>
               <li class="nav-item">
@@ -70,8 +69,7 @@ https://templatemo.com/tm-546-sixteen-clothing
       </nav>
     </header>
 
-    <!-- Page Content -->
-  {%include "page_content_products.html"%}
+    {% include "page_content.html"%}
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -84,8 +82,8 @@ https://templatemo.com/tm-546-sixteen-clothing
     <script src="assets/js/slick.js"></script>
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/accordions.js"></script>
-
-
+    
+    
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
       function clearField(t){                   //declaring the array outside of the

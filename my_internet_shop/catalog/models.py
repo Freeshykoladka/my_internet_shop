@@ -50,3 +50,23 @@ class Gallery(models.Model):
     photo = models.ImageField(upload_to='gallery/')
     is_visible = models.BooleanField(default=True)
     title = models.CharField(max_length=255, blank=True)
+
+
+class Order(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    address = models.CharField(max_length=255)
+    credit_card_number = models.CharField(max_length=16)  
+    expiration_date = models.CharField(max_length=5)  
+    cvv = models.CharField(max_length=4)
+    is_precessed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return f"Order #{self.pk} - {self.name}"
+    
+    class Meta:
+        ordering = ('-created_at', )
