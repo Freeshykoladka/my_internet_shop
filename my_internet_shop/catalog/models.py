@@ -61,7 +61,7 @@ class Order(models.Model):
     expiration_date = models.CharField(max_length=5)  
     cvv = models.CharField(max_length=4)
     is_precessed = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add= True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
