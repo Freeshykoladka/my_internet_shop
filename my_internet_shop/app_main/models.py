@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from ckeditor.fields import RichTextField
 
 class CatalogItem(models.Model):
     title=models.CharField(max_length=50, verbose_name='catalog item')
@@ -13,9 +13,8 @@ class CatalogItem(models.Model):
 
     def get_absolute_url(self):
         if self.is_anchor:
-            return reverse('shop:home')+ f'#{self.slug}'
-        return self.slug 
-
+            return reverse(f'shop:{self.slug}')
+        return reverse('shop:detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return f' {self.title}/{self.slug}'
@@ -23,3 +22,16 @@ class CatalogItem(models.Model):
     class Meta:
         ordering=('order',)
 
+class Footer(models.Model):
+    address = RichTextField()
+    reservation = RichTextField()
+    opening_hours = RichTextField()
+    twitter_link = models.URLField(blank=True)
+    facebook_link = models.URLField(blank=True)
+    instagram_link = models.URLField(blank=True)
+    linkedin_link = models.URLField(blank=True)
+    copyright_text = RichTextField()
+    credits_text = RichTextField()
+
+    def __str__(self):
+        return 'Footer Info'

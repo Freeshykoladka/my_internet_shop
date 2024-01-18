@@ -1,6 +1,9 @@
-
-    <ul>
-      {% for item in catalog_item%}
-            <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
-        {% endfor %}
-    </ul>
+<nav id="navbar" class="navbar">
+  <ul class="navbar-nav justify-content-end">
+    {% for item in catalog_item %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% if item.is_anchor %}{{ item.get_absolute_url }}{% else %}{% url "shop:products" %}{% endif %}">{{ item.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -3,18 +3,24 @@ from .models import Product, Catalog
 from django.views.generic import TemplateView
 from .forms import OrderForm
 from django.contrib import messages
+from django.shortcuts import render
+from app_main.models import CatalogItem
 
 class IndexPage(TemplateView):
-    template_name = 'index.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, 'index.html')
 
 class ProductsPage(TemplateView):
-    template_name = 'products.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, 'products.html')
 
 class AboutPage(TemplateView):
-    template_name= 'about.html'
+  def get(self, request, *args, **kwargs):
+        return render(request, 'about.html')
 
 class ContactPage(TemplateView):
-    template_name= 'contact.html'
+    def get(self, request, *args, **kwargs):
+        return render(request, 'contact.html')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -35,3 +41,8 @@ class ContactPage(TemplateView):
         messages.error(request,'Errors in form Payment')
         return render(request,'index.html',context=context)
     
+
+def index(request):
+    catalog_items = CatalogItem.objects.all()  
+    return render(request, 'index.html', {'catalog_items': catalog_items})
+
