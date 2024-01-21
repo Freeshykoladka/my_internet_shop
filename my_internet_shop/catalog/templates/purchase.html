@@ -1,0 +1,33 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="buyModalLabel2">Оформлення покупки</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="margin-top: 15px !important;">
+            <form method="post" action="/purchase/2/">
+                {% csrf_token %}
+                {{ order_form.as_p }}
+                <div class="form-group">
+                    <label for="inputName">Ім'я:</label>
+                    <input type="text" class="form-control" id="inputName" name="name" placeholder="Введіть ваше ім'я" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputLastName">Фамілія:</label>
+                    <input type="text" class="form-control" id="inputLastName" name="last_name" placeholder="Введіть вашу фамілію" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Адреса:</label>
+                    <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Введіть вашу адресу" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail">Е-мейл:</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Введіть вашу електронну пошту" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Придбати</button>
+            </form>
+        </div>
+    </div>
+</div>

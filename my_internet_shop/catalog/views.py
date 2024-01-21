@@ -5,44 +5,49 @@ from .forms import OrderForm
 from django.contrib import messages
 from django.shortcuts import render
 from app_main.models import CatalogItem
+from  django.http import HttpResponse
+
 
 class IndexPage(TemplateView):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'index.html')
+    template_name= 'index.html'
 
 class ProductsPage(TemplateView):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'products.html')
-
-class AboutPage(TemplateView):
-  def get(self, request, *args, **kwargs):
-        return render(request, 'about.html')
-
-class ContactPage(TemplateView):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'contact.html')
+    template_name = 'products.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        catalogs= Catalog.objects.filter(is_visible=True)
-        context['catalogs'] = catalogs
-        context['order_form'] = OrderForm()
+        context['catalogs'] = Catalog.objects.all()
+        context['products'] = Product.objects.exclude(catalogs__name='')
         return context
 
-    def post(self, request,*args, **kwargs):
+class ProductCategoryPage(TemplateView):
+    template_name = 'page_content_products.html'
+
+    def get_context_data(self, **kwargs):
+        category_slug = self.kwargs['category']
+        context = super().get_context_data(**kwargs)
+        context['catalogs'] = Catalog.objects.all()
+        context['products'] = Product.objects.filter(catalog__slug=category_slug, is_visible=True)
+        return context
+    
+class AboutPage(TemplateView):
+  template_name= 'about.html'
+
+class ContactPage(TemplateView):
+    template_name= 'contact.html'
+
+
+class PurchaseView(TemplateView):
+    template_name = 'purchase.html'
+    
+    def post(self, *args, **kwargs):
         order_form = OrderForm(self.request.POST)
 
         if order_form.is_valid():
-            order_form(request,'Reservation done')
-            return redirect('shop:home')
-        
-        context = self.get_context_data(**kwargs)
-        context['order_form'] = OrderForm()
-        messages.error(request,'Errors in form Payment')
-        return render(request,'index.html',context=context)
-    
-
-def index(request):
-    catalog_items = CatalogItem.objects.all()  
-    return render(request, 'index.html', {'catalog_items': catalog_items})
-
+            order_form.save()
+            messages.success(self.request, 'Purchase done')
+            return redirect('shop:home')  # Змінивши на потрібний маршрут
+        else:
+            # Виведення помилок форми для відлагодження
+            print(order_form.errors)
+            return HttpResponse("Помилка! Замовлення не було прийнято.")

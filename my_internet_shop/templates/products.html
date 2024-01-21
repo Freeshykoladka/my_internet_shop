@@ -23,13 +23,10 @@ https://templatemo.com/tm-546-sixteen-clothing
 -->
 
     <!-- Additional CSS Files -->
-    <link rel= "stylesheet" href={% static "assets/css/fontawesome.css"%}>
-    <link rel= "stylesheet" href={% static "assets/css/templatemo-sixteen.css"%}>
-    <link rel= "stylesheet" href={% static "assets/css/owl.css"%}>
-
-  </head>
-
-  <body>
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+  
 
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
@@ -62,20 +59,22 @@ https://templatemo.com/tm-546-sixteen-clothing
     </div>
   </nav>
 </header>
-    <!-- Page Content -->
-  {%include "page_content_products.html"%}
 
-    <!-- Bootstrap core JavaScript -->
-    <script src={% static 'vendor/jquery/jquery.min.js'%}></script>
-    <script src={% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}></script>
+<!-- Page Content -->
+{% include "page_content_products.html" %}
 
 
-    <!-- Additional Scripts -->
-    <script src={% static 'assets/js/custom.js'%}></script>
-    <script src={% static 'assets/js/owl.js'%}></script>
-    <script src={% static 'assets/js/slick.js'%}></script>
-    <script src={% static 'assets/js/isotope.js'%}></script>
-    <script src={% static 'assets/js/accordions.js'%}></script>
+
+<!-- Bootstrap core JavaScript -->
+<script src={% static "vendor/jquery/jquery.min.js"%}></script>
+<script src={% static "vendor/bootstrap/js/bootstrap.bundle.min.js"%}></script>
+
+<!-- Additional Scripts -->
+<script src={% static 'assets/js/custom.js' %}></script>
+<script src={% static 'assets/js/owl.js' %}></script>
+<script src={% static 'assets/js/slick.js' %}></script>
+<script src={% static 'assets/js/isotope.js' %}></script>
+<script src={% static 'assets/js/accordions.js' %}></script>
 
   </body>
 

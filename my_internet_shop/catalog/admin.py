@@ -1,11 +1,16 @@
 from django.contrib import admin
-from .models import Catalog, Product
+from .models import Catalog, Product,Order
 from django.utils.safestring import mark_safe
 
 
 
+admin.site.register(Order)
 
 admin.site.register(Catalog)
+
+
+
+
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
