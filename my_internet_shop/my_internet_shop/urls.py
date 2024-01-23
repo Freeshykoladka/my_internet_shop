@@ -21,12 +21,15 @@ from django.urls import path,include
 
 
 from my_internet_shop import settings
+from account.views import RegisterUser
 
 
 
 urlpatterns =[
     path('admin/', admin.site.urls),
     path('', include('catalog.urls')),
+
+    path('registration/', RegisterUser.as_view(), name='registration'),
 ]
 
 if settings.DEBUG:

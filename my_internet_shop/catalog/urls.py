@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 from .views import IndexPage, ProductsPage, PurchaseView, AboutPage, ContactPage, ProductCategoryPage
-app_name='shop'
+
+app_name = 'shop'
 
 urlpatterns = [
     path('', IndexPage.as_view(), name='home'),

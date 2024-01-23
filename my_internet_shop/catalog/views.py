@@ -3,14 +3,20 @@ from .models import Product, Catalog
 from django.views.generic import TemplateView
 from .forms import OrderForm
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from app_main.models import CatalogItem
-from  django.http import HttpResponse
+from django.http import HttpResponse
+from django.views.generic import TemplateView
 
 
 class IndexPage(TemplateView):
-    template_name= 'index.html'
+    template_name = 'index.html'
 
+    def get(self, request, *args, **kwargs):
+        products = Product.objects.all()
+        context = {'products': products}
+        return render(request, self.template_name, context)
+    
 class ProductsPage(TemplateView):
     template_name = 'products.html'
 
@@ -31,10 +37,10 @@ class ProductCategoryPage(TemplateView):
         return context
     
 class AboutPage(TemplateView):
-  template_name= 'about.html'
+  template_name = 'about.html'
 
 class ContactPage(TemplateView):
-    template_name= 'contact.html'
+    template_name = 'contact.html'
 
 
 class PurchaseView(TemplateView):
@@ -45,7 +51,7 @@ class PurchaseView(TemplateView):
 
         if order_form.is_valid():
             order_form.save()
-            messages.success(self.request, 'Purchase done')
+            messages.success(self.request, 'Покупка виконана')
             return redirect('shop:home')  # Змінивши на потрібний маршрут
         else:
             # Виведення помилок форми для відлагодження

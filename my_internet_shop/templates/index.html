@@ -24,7 +24,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
   
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href={% static 'assets/css/templatemo-sixteen.css' %}>
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
     <link rel="stylesheet" href={% static 'assets/css/fontawesome.css' %}>
     <link rel="stylesheet" href={% static 'assets/css/owl.css' %}>	  
   </head>
@@ -64,6 +64,8 @@ https://templatemo.com/tm-546-sixteen-clothing
     <!-- Page Content -->
     <!-- Banner Starts Here -->
     {% include "includes/banner.html" %}
+    
+    
     <!-- Reviews -->
     {%include "includes/reviews.html"%}
     <!-- End Reviews-->
@@ -103,8 +105,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <script src={% static 'assets/js/owl.js' %}></script>
     <script src={% static 'assets/js/slick.js' %}></script>
     <script src={% static 'assets/js/isotope.js' %}></script>
-    <script src={% static 'assets/js/accordions.js' %}></script>
-    </script>
+    <script src="{% static 'assets/js/accordions.js' %}"></script>
 
 
   </body>
