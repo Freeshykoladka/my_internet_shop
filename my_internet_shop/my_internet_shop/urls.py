@@ -16,19 +16,14 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path,include
-
-
+from django.urls import path, include
 
 from my_internet_shop import settings
 from account.views import RegisterUser
 
-
-
-urlpatterns =[
+urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('catalog.urls')),
-
     path('registration/', RegisterUser.as_view(), name='registration'),
 ]
 
