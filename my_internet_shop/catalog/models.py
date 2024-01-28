@@ -57,8 +57,7 @@ class Order(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     address = models.CharField(max_length=255)
-
-    is_precessed = models.BooleanField(default=False)
+    is_precessed = models.BooleanField(default=False)  # Оновлене поле
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

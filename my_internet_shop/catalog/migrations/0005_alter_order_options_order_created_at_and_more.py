@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='order',
-            name='is_precessed',
+            name='is_processed',
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(

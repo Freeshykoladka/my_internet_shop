@@ -1,20 +1,22 @@
-{% load static%}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet">
 
-    <title>Sixteen Clothing HTML Template</title>
+  <title>Sixteen Clothing HTML Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-<!--
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!--
 
 TemplateMo 546 Sixteen Clothing
 
@@ -22,92 +24,75 @@ https://templatemo.com/tm-546-sixteen-clothing
 
 -->
 
-  
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
-    <link rel="stylesheet" href={% static 'assets/css/fontawesome.css' %}>
-    <link rel="stylesheet" href={% static 'assets/css/owl.css' %}>	  
-  </head>
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/templatemo-sixteen.css' %}">
+  <link rel="stylesheet" href={% static 'assets/css/fontawesome.css' %}>
+  <link rel="stylesheet" href={% static 'assets/css/owl.css' %}>
+</head>
 
-  <body>
+<body>
 
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  
-    <!-- ***** Preloader End ***** -->
-   <!-- Header -->
-<header class="">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      {% include 'includes/navbar.html' %}
-      <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          {% for item in catalog_items %}
+  <!-- ***** Preloader Start ***** -->
+  <div id="preloader">
+    <div class="jumper">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+  <!-- Header -->
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        {% include 'includes/navbar.html' %}
+        <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            {% for item in catalog_items %}
             <li class="nav-item {% if request.path == item.get_absolute_url %}active{% endif %}">
               <a class="nav-link" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
             </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-    <!-- Page Content -->
-    <!-- Banner Starts Here -->
-    {% include "includes/banner.html" %}
-    
-    
-    <!-- Reviews -->
-    {%include "includes/reviews.html"%}
-    <!-- End Reviews-->
-
-
-    <div class="call-to-action">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="inner-content">
-              <div class="row">
-                <div class="col-md-8">
-                  <h4>Creative &amp; Unique <em>Sixteen</em> Products</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
-                </div>
-                <div class="col-md-4">
-                  <a href="#" class="filled-button">Purchase Now</a>
-                </div>
-              </div>
-            </div>
-          </div>
+            {% endfor %}
+          </ul>
         </div>
       </div>
-    </div>
+    </nav>
+  </header>
+  <!-- Page Content -->
 
-   <!--Footer--> 
-   {%include "includes/footer.html"%}
-   <!--End Footer-->
+  <!-- Banner Starts Here -->
+  {% include "includes/banner.html" %}
+
+  {% block content %}
+  {% endblock %}
+
+  <!-- Reviews -->
+  {% include "includes/reviews.html" %}
+  <!-- End Reviews-->
+  
+  <!--Footer-->
+  {% include "includes/footer.html" %}
+  <!--End Footer-->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src={% static 'vendor/jquery/jquery.min.js' %}></script>
+  <script src={% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}></script>
+
+  <!-- Additional Scripts -->
+  <script src={% static 'assets/js/custom.js' %}></script>
+  <script src={% static 'assets/js/owl.js' %}></script>
+  <script src={% static 'assets/js/slick.js' %}></script>
+  <script src={% static 'assets/js/isotope.js' %}></script>
+  <script src="{% static 'assets/js/accordions.js' %}"></script>
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src={% static 'vendor/jquery/jquery.min.js' %}></script>
-    <script src={% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}></script>
-
-    <!-- Additional Scripts -->
-    <script src={% static 'assets/js/custom.js' %}></script>
-    <script src={% static 'assets/js/owl.js' %}></script>
-    <script src={% static 'assets/js/slick.js' %}></script>
-    <script src={% static 'assets/js/isotope.js' %}></script>
-    <script src="{% static 'assets/js/accordions.js' %}"></script>
 
 
-  </body>
+</body>
 
 </html>

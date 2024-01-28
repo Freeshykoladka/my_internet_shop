@@ -19,12 +19,16 @@ from django.contrib import admin
 from django.urls import path, include
 
 from my_internet_shop import settings
-from account.views import RegisterUser
+from account.views import RegisterUser, LoginUser, logout_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('catalog.urls')),
+    
     path('registration/', RegisterUser.as_view(), name='registration'),
+    path('login/', LoginUser.as_view(), name='login'),
+    path('logout/', logout_user, name='logout'),
+    path('manager/',include('manager.urls')),
 ]
 
 if settings.DEBUG:
