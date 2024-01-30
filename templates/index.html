@@ -53,7 +53,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            {% for item in catalog_item%}
+            {% for item in catalog_items %}
             <li class="nav-item {% if request.path == item.get_absolute_url %}active{% endif %}">
               <a class="nav-link" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
             </li>
