@@ -1,28 +1,18 @@
 <nav id="navbar" class="navbar">
-    <ul class="navbar-nav justify-content-end">
-        {% for item in catalog_item %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% if item.is_anchor %}{{ item.get_absolute_url }}{% else %}{% url "shop:products" %}{% endif %}">{{ item.title }}</a>
-            </li>
+    <ul>
+        {% for item in main_menu %}
+            <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
         {% endfor %}
 
         {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
         {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'registration' %}">Sign up</a>
-            </li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'registration' %}">Sign up</a></li>
         {% endif %}
 
-        {% if user.groups.exists and user.groups.first.name == 'manager' %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'manager:index' %}">Manager</a>
-            </li>
+        {% if user.groups.all.0.name == 'manager' %}
+        <li><a href="{% url 'manager:index' %}">Managers</a></li>
         {% endif %}
     </ul>
 </nav>
