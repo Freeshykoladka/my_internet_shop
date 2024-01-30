@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ManagerIndex,EditPurchases
+from .views import ManagerIndex, EditPurchases
 
 app_name = 'manager'
 
