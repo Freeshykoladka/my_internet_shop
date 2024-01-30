@@ -20,7 +20,9 @@
     {% endif %}
 
         {% if user.groups.exists and user.groups.first.name == 'manager' %}
-            <li><a href="{% url 'manager:index' %}">Manager</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'manager:index' %}">Manager</a>
+        </li>
         {% endif %}
     </ul>
 </nav>
