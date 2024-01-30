@@ -1,6 +1,6 @@
 <nav id="navbar" class="navbar">
     <ul>
-        {% for item in main_menu %}
+        {% for item in catalog_item %}
             <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
         {% endfor %}
 
@@ -12,7 +12,7 @@
         {% endif %}
 
         {% if user.groups.all.0.name == 'manager' %}
-        <li><a href="{% url 'manager:index' %}">Managers</a></li>
+            <li><a href="{% url 'manager:index' %}">Managers</a></li>
         {% endif %}
     </ul>
 </nav>
