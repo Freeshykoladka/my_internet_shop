@@ -45,23 +45,23 @@ https://templatemo.com/tm-546-sixteen-clothing
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       {% include 'includes/navbar.html' %}
-      <a class="navbar-brand" href="index.html"><h2>Sixteen <em>Clothing</em></h2></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href={% url "shop:home" %}><h2>Sixteen <em>Clothing</em></h2></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           {% for item in catalog_items %}
-            <li class="nav-item {% if request.path == item.get_absolute_url %}active{% endif %}">
-              <a class="nav-link" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
-            </li>
+          <li class="nav-item {% if request.path == item.get_absolute_url %}active{% endif %}">
+            <a class="nav-link" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+          </li>
           {% endfor %}
         </ul>
       </div>
     </div>
   </nav>
 </header>
-
           
   
     {%include "page_content_contact.html"%}
